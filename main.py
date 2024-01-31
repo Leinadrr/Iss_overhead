@@ -2,13 +2,15 @@ import requests
 from datetime import datetime
 import smtplib
 
-MY_LAT = 38.026169
-MY_LONG = -4.381870
-MY_MAIL = "arathoriiicsr2@gmail.com"
-PASSWORD = "gzqwgfsxaeiasvyf"
+# Constants for your private information (latitude, longitude, mail and password).
+MY_LAT = 31.026169
+MY_LONG = -9.381870
+MY_MAIL = "your_email@mail.com"
+PASSWORD = "asdfasdfasdfggh3ersdag23"
 
 
 def on_point():
+    """Function that requests the position of the international space station."""
     response1 = requests.get(url="http://api.open-notify.org/iss-now.json")
     response1.raise_for_status()
     data1 = response1.json()
@@ -23,6 +25,7 @@ def on_point():
 
 
 def is_night():
+    """Function that checks if is night atm."""
     if sunrise >= hour >= sunset:
         return True
     else:
